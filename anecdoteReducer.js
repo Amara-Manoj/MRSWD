@@ -15,6 +15,7 @@ const createNode = (state, content) => {
 const incrementVote = (state, id) => {
   const anecdote = state.find(p => p.id === id)
   const updatedAnecdotes = { ...anecdote, votes: anecdote.votes+1 }
+  notification.notification = "Voted for - " + anecdote.content
   state = state.map(p => p.id === id ? updatedAnecdotes : p)
   //console.log("changed state in reducer function: ", state)
   return state
